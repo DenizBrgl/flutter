@@ -596,7 +596,7 @@ class _BottomSheetSuspendedCurve extends ParametricCurve<double> {
 /// Returns a `Future` that resolves to the value (if any) that was passed to
 /// [Navigator.pop] when the modal bottom sheet was closed.
 ///
-/// {@tool dartpad --template=stateless_widget_scaffold}
+/// {@tool dartpad --template=stateless_widget_scaffold_no_null_safety}
 ///
 /// This example demonstrates how to use `showModalBottomSheet` to display a
 /// bottom sheet that obscures the content behind it when a user taps a button.
@@ -669,7 +669,7 @@ Future<T?> showModalBottomSheet<T>({
   assert(debugCheckHasMediaQuery(context));
   assert(debugCheckHasMaterialLocalizations(context));
 
-  final NavigatorState navigator = Navigator.of(context, rootNavigator: useRootNavigator)!;
+  final NavigatorState navigator = Navigator.of(context, rootNavigator: useRootNavigator);
   return navigator.push(_ModalBottomSheetRoute<T>(
     builder: builder,
     capturedThemes: InheritedTheme.capture(from: context, to: navigator.context),
